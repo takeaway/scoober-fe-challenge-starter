@@ -1,0 +1,14 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.scale-on-hover {
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.color-transition {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
