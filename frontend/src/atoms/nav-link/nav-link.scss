@@ -1,0 +1,16 @@
+.nav-link {
+    @apply bg-white text-primary p-3 text-xl leading-5 flex items-center justify-between;
+
+    .nav-link-icon {
+        @apply h-3;
+        fill: theme('colors.secondary');
+    }
+
+    &:hover, &.active {
+        @apply bg-secondary text-white;
+
+        .nav-link-icon {
+            fill: theme('colors.white');
+        }
+    }
+}

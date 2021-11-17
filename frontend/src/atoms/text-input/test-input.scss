@@ -1,0 +1,26 @@
+.text-box {
+  @apply flex flex-col relative pt-1.5;
+
+  color: theme('colors.primary');
+
+  input {
+    padding: 5px 10px;
+    border-bottom: 2px solid theme('colors.primary');
+    transition: border-color 0.3s;
+    background: transparent;
+    outline: none;
+  }
+
+  label {
+    @apply absolute;
+    left: 10px;
+    bottom: 7px;
+    transition: transform 0.3s;
+    z-index: -1;
+
+    &.floating {
+      transform: translateY(-100%)
+    }
+  }
+}
+
