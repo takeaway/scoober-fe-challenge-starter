@@ -3,6 +3,11 @@
     transition: 0.3s background-color;
 }
 
+.secondary-button {
+    @apply shadow-md rounded-full text-secondary bg-white hover:bg-secondary hover:text-white p-2;
+    transition: 0.3s background-color;
+}
+
 .round-button {
     @apply shadow-md rounded-full text-secondary bg-white;
     @apply h-[50px] w-[50px];

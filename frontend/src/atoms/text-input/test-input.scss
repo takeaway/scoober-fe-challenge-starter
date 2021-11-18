@@ -16,7 +16,6 @@
     left: 10px;
     bottom: 7px;
     transition: transform 0.3s;
-    z-index: -1;
 
     &.floating {
       transform: translateY(-100%)

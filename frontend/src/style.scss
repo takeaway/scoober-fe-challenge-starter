@@ -3,3 +3,11 @@
 @tailwind utilities;
 
 @import './general-styles/styles.scss';
+
+main {
+    min-height: calc(100vh - 72*3px);
+
+    @media (min-width: 768px) {
+        min-height: calc(100vh - 72*2px);
+    }
+}
