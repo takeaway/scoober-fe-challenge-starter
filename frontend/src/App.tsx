@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import LoginPage from './pages/login';
 import RoomPage from './pages/room';
+import Authorize from './components/Authorize';
 
 import SocketProvider from './SocketProvider';
 import { addUserInfo } from './redux/reducers/user';
@@ -54,8 +55,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/room'>
-          <RoomPage/>
+        <Route path='/room/:id?'>
+          <Authorize>
+            <RoomPage/>
+          </Authorize>
         </Route>
         <Route path={['/login', '/']}>
           <LoginPage/>

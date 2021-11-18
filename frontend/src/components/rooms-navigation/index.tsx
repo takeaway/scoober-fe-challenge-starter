@@ -20,7 +20,7 @@ export default function RoomNavigation({
           className='mb-0.25'
           isActive={room.id === id && room.type === type}
           label={room.name}
-          url={`/room?id=${room.id}&type=${room.type}`}
+          url={`/room/${room.id}`}
         />
       ))}
     </div>

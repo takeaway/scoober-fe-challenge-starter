@@ -32,3 +32,7 @@ export interface RomeQueryParams {
   id: string;
   type: string;
 }
+
+export interface LoginPageParams {
+  redirectTo: string;
+}

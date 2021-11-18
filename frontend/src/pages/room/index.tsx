@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { useFetchRoomsQuery } from '../../redux/reducers/rooms';
@@ -10,19 +10,17 @@ import MainTemplate from '../../templates/main';
 import GameSummary from '../../components/game-summary';
 import Button from '../../atoms/button';
 import { resetTurnRecord, setGameOver } from '../../redux/reducers/game';
-import { getQueryParams } from '../../utils/url-helpers';
-import { RomeQueryParams } from '../../types';
 import Layover from '../../components/layover';
 
 const RoomPage = () => {
-  const { search } = useLocation();
-  const { id, type } = getQueryParams<RomeQueryParams>(search);
+  const { id } = useParams<{ id: string; }>();
   const userInfo = useAppSelector(state => state.user);
   const game = useAppSelector(state => state.game);
   const { length: gameRecordsLength } = game.gameRecords;
   const dispatch = useAppDispatch();
 
   const { data: rooms = [] } = useFetchRoomsQuery();
+  const { type } = rooms.find(x => x.id === id) || { type: '' };
 
   useEffect(() => {
     const socket = SocketProvider.getInstance();

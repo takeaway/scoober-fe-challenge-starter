@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import SocketProvider from '../../SocketProvider';
 import { useAppSelector } from '../../redux/hooks';
 
@@ -8,17 +8,21 @@ import Button from '../../atoms/button';
 import Spinner from '../../atoms/spinner';
 import Layover from '../../components/layover';
 import MainTemplate from '../../templates/main';
+import { getQueryParams } from '../../utils/url-helpers';
+import { LoginPageParams } from '../../types';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [loading, setLoading] = useState(false);
   const userInfo = useAppSelector(state => state.user);
   const history = useHistory();
+  const { search } = useLocation();
+  const { redirectTo } = getQueryParams<LoginPageParams>(search);
 
   useEffect(() => {
     console.log(userInfo);
     if (userInfo.user && userInfo.socketId) {
-      history.push('/room');
+      history.push(redirectTo || '/room');
     }
   }, [userInfo]);
 
