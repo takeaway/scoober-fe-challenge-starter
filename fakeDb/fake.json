@@ -17,6 +17,12 @@
       "name": "Room Amsterdam",
       "owner": "lqcflVIEANZWYkmAAADD",
       "type": "human"
+    },
+    {
+      "id": "aa0c86fb",
+      "name": "Room Dresden",
+      "owner": "lqcflVIEANZWYkmAAADC",
+      "type": "human"
     }
   ],
   "users": []
